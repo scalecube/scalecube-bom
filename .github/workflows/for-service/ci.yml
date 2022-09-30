@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ master ]
+  release:
+    types: [ published ]
+
+jobs:
+  ci:
+    name: CI
+    uses: scalecube/.github/.github/workflows/ci.yml@master
+    secrets:
+      ORGANIZATION_TOKEN: ${{ secrets.ORGANIZATION_TOKEN }}
+      HELM_REGISTRY_URL: ${{ secrets.HELM_REGISTRY_URL }}
+      HELM_REGISTRY_USER: ${{ secrets.HELM_REGISTRY_USER }}
+      HELM_REGISTRY_PASSWORD: ${{ secrets.HELM_REGISTRY_PASSWORD }}
+  robokit-deploy:
+    if: github.event_name == 'push' && (github.ref_name == 'develop' || github.ref_name == 'master')
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo 'Robokit Deploy Trigger'

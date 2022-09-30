@@ -1,0 +1,36 @@
+name: Release CI
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Release CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      - name: Set up Maven
+        run: cp build.settings.xml ~/.m2/settings.xml
+      - name: Deploy release version
+        run: |
+          release_version=${{ github.event.release.tag_name }}
+          echo Release version $release_version
+          mvn versions:set -DnewVersion=$release_version -DgenerateBackupPoms=false
+          mvn versions:commit
+          mvn clean deploy -B -V
+        env:
+          GITHUB_TOKEN: ${{ secrets.ORGANIZATION_TOKEN }}
+      - name: Rollback release (remove tag)
+        if: failure()
+        run: git push origin :refs/tags/${{ github.event.release.tag_name }}

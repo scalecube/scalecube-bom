@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.exberry</groupId>
+    <artifactId>exchange-parent</artifactId>
+    <version>0.35.13</version>
+  </parent>
+
+  <artifactId>exchange-repository-template</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>${project.artifactId} project</name>
+
+  <repositories>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/exberry-io/packages</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>scalecube</id>
+      <name>Scalecube Packages</name>
+      <url>https://maven.pkg.github.com/scalecube/packages</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/exberry-io/${project.artifactId}</url>
+    </repository>
+  </distributionManagement>
+
+  <scm>
+    <url>https://exberry.io/</url>
+    <connection>scm:git:https://github.com/exberry-io/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:https://github.com/exberry-io/${project.artifactId}.git
+    </developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
+</project>
