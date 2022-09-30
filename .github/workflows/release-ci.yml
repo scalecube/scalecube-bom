@@ -1,30 +1,31 @@
-name: Master branch CI
+name: Release CI
 
 on:
-  push:
-    branches:
-      - 'master'
+  release:
+    types: [released]
 
 jobs:
   build:
-    name: Master Branch CI
+    name: Release CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - run: git checkout ${{ github.event.release.target_commitish }}
       - uses: actions/cache@v1
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Set up JDK
+      - name: Set up Java for publishing to GitHub Packages
         uses: actions/setup-java@v1
         with:
-          java-version: 17
-      - name: Set up Maven
-        run: cp build.settings.xml ~/.m2/settings.xml
+          java-version: 1.8
+          server-id: github
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
       - name: Maven Build
         run: mvn clean install -DskipTests=true -Ddockerfile.skip=true -B -V
         env:
@@ -33,10 +34,6 @@ jobs:
         run: mvn verify -B
       - name: Configure git
         run: |
-          echo "Git checkout branch ${GITHUB_REF##*/}, commit ${GITHUB_SHA} was pushed by ${GITHUB_ACTOR}"
-          git checkout ${GITHUB_REF##*/}
-          echo "Git reset hard to ${GITHUB_SHA}"
-          git reset --hard ${GITHUB_SHA}
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git config --global user.name "${GITHUB_ACTOR}"
       - name: Prepare release
@@ -44,18 +41,38 @@ jobs:
         run: |
           mvn -B build-helper:parse-version release:prepare \
             -DreleaseVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion} \
-            -DdevelopmentVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion}-SNAPSHOT \
-            -Darguments="-DskipTests=true"
+            -Darguments="-DskipTests=true -Ddockerfile.skip=true"
           echo ::set-output name=release_tag::$(git describe --tags --abbrev=0)
       - name: Perform release
-        run: mvn -B release:perform -Darguments="-DskipTests=true -Ddocker.image.extra-tag=master"
+        run: mvn -B release:perform -Pdeploy2Github -Darguments="-DskipTests=true -Ddockerfile.skip=true -Pdeploy2Github"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+      - name: Set up Java for publishing to Maven Central Repository
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Deploy release version to the Maven Central Repository
+        run: |
+          release_version=$(echo ${{ steps.prepare_release.outputs.release_tag }} | sed "s/release-//")
+          echo release version $release_version
+          mvn versions:set -DnewVersion=$release_version -DgenerateBackupPoms=false
+          mvn versions:commit
+          mvn deploy -Pdeploy2Maven -DskipTests -B -V
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
       - name: Rollback release
         if: failure()
         run: |
           mvn release:rollback || echo "nothing to rollback"
+          git push origin :refs/tags/${{ github.event.release.tag_name }}
           if [ ! -z "${{ steps.prepare_release.outputs.release_tag }}" ]
           then
             git tag -d ${{ steps.prepare_release.outputs.release_tag }}

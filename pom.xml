@@ -1,15 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.exberry</groupId>
-    <artifactId>exchange-parent</artifactId>
-    <version>0.35.13</version>
+    <groupId>io.scalecube</groupId>
+    <artifactId>scalecube-parent-pom</artifactId>
+    <version>0.2.19</version>
   </parent>
 
-  <artifactId>exchange-repository-template</artifactId>
+  <artifactId>scalecube-bom</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId} project</name>
@@ -18,14 +16,6 @@
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/exberry-io/packages</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>scalecube</id>
-      <name>Scalecube Packages</name>
       <url>https://maven.pkg.github.com/scalecube/packages</url>
       <snapshots>
         <enabled>false</enabled>
@@ -33,20 +23,111 @@
     </repository>
   </repositories>
 
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/exberry-io/${project.artifactId}</url>
-    </repository>
-  </distributionManagement>
-
   <scm>
-    <url>https://exberry.io/</url>
-    <connection>scm:git:https://github.com/exberry-io/${project.artifactId}.git</connection>
-    <developerConnection>scm:git:https://github.com/exberry-io/${project.artifactId}.git
+    <url>https://github.com/scalecube/scalecube</url>
+    <connection>scm:git:https://github.com/scalecube/${project.artifactId}</connection>
+    <developerConnection>scm:git:https://github.com/scalecube/${project.artifactId}
     </developerConnection>
     <tag>HEAD</tag>
   </scm>
+
+  <properties>
+    <scalecube-cluster.version>2.6.12</scalecube-cluster.version>
+    <scalecube-commons.version>1.0.19</scalecube-commons.version>
+    <scalecube-services.version>2.10.23</scalecube-services.version>
+    <scalecube-gateway.version>2.10.13</scalecube-gateway.version>
+    <scalecube-security.version>1.0.27</scalecube-security.version>
+    <scalecube-config.version>0.4.17</scalecube-config.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-api</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-discovery</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-transport-rsocket</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-transport-jackson</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-bytebuf-codec</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-gateway-netty</artifactId>
+        <version>${scalecube-gateway.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-gateway-client-transport</artifactId>
+        <version>${scalecube-gateway.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-security</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-codec-jackson</artifactId>
+        <version>${scalecube-cluster.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-transport-netty</artifactId>
+        <version>${scalecube-cluster.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-config</artifactId>
+        <version>${scalecube-config.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-config-vault</artifactId>
+        <version>${scalecube-config.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-security-jwt</artifactId>
+        <version>${scalecube-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-security-tokens</artifactId>
+        <version>${scalecube-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-security-vault</artifactId>
+        <version>${scalecube-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-commons</artifactId>
+        <version>${scalecube-commons.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
