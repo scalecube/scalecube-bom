@@ -24,7 +24,7 @@
   </repositories>
 
   <scm>
-    <url>https://github.com/scalecube/scalecube</url>
+    <url>https://scalecube.io</url>
     <connection>scm:git:https://github.com/scalecube/${project.artifactId}</connection>
     <developerConnection>scm:git:https://github.com/scalecube/${project.artifactId}
     </developerConnection>
