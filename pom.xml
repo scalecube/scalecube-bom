@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>io.scalecube</groupId>
-    <artifactId>scalecube-parent-pom</artifactId>
-    <version>0.2.19</version>
+    <artifactId>scalecube-parent</artifactId>
+    <version>0.2.20</version>
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
@@ -25,23 +27,27 @@
 
   <scm>
     <url>https://scalecube.io</url>
-    <connection>scm:git:https://github.com/scalecube/${project.artifactId}</connection>
-    <developerConnection>scm:git:https://github.com/scalecube/${project.artifactId}
+    <connection>scm:git:https://github.com/scalecube/scalecube-bom</connection>
+    <developerConnection>scm:git:https://github.com/scalecube/scalecube-bom
     </developerConnection>
     <tag>HEAD</tag>
   </scm>
 
   <properties>
-    <scalecube-cluster.version>2.6.12</scalecube-cluster.version>
-    <scalecube-commons.version>1.0.19</scalecube-commons.version>
-    <scalecube-services.version>2.10.23</scalecube-services.version>
-    <scalecube-gateway.version>2.10.13</scalecube-gateway.version>
-    <scalecube-security.version>1.0.27</scalecube-security.version>
-    <scalecube-config.version>0.4.17</scalecube-config.version>
+    <scalecube-cluster.version>2.6.13</scalecube-cluster.version>
+    <scalecube-commons.version>1.0.21</scalecube-commons.version>
+    <scalecube-services.version>2.10.24</scalecube-services.version>
+    <scalecube-gateway.version>2.10.15</scalecube-gateway.version>
+    <scalecube-security.version>1.0.28</scalecube-security.version>
+    <scalecube-config.version>0.4.18</scalecube-config.version>
+
+    <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
+    </distributionManagement.url>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Services -->
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-services-api</artifactId>
@@ -59,6 +65,11 @@
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-services-security</artifactId>
+        <version>${scalecube-services.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
         <artifactId>scalecube-services-transport-rsocket</artifactId>
         <version>${scalecube-services.version}</version>
       </dependency>
@@ -69,9 +80,11 @@
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-services-bytebuf-codec</artifactId>
+        <artifactId>scalecube-services-transport-protostuff</artifactId>
         <version>${scalecube-services.version}</version>
       </dependency>
+
+      <!-- Gateway -->
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-services-gateway-netty</artifactId>
@@ -82,10 +95,17 @@
         <artifactId>scalecube-services-gateway-client-transport</artifactId>
         <version>${scalecube-gateway.version}</version>
       </dependency>
+
+      <!-- Cluster -->
       <dependency>
         <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-services-security</artifactId>
-        <version>${scalecube-services.version}</version>
+        <artifactId>scalecube-cluster-api</artifactId>
+        <version>${scalecube-cluster.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-cluster</artifactId>
+        <version>${scalecube-cluster.version}</version>
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
@@ -94,9 +114,16 @@
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-codec-jackson-smile</artifactId>
+        <version>${scalecube-cluster.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
         <artifactId>scalecube-transport-netty</artifactId>
         <version>${scalecube-cluster.version}</version>
       </dependency>
+
+      <!-- Config -->
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-config</artifactId>
@@ -107,6 +134,8 @@
         <artifactId>scalecube-config-vault</artifactId>
         <version>${scalecube-config.version}</version>
       </dependency>
+
+      <!-- Security -->
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-security-jwt</artifactId>
@@ -122,6 +151,8 @@
         <artifactId>scalecube-security-vault</artifactId>
         <version>${scalecube-security.version}</version>
       </dependency>
+
+      <!-- Commons -->
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-commons</artifactId>
