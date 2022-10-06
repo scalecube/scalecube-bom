@@ -35,7 +35,7 @@
     <scalecube-cluster.version>2.6.13</scalecube-cluster.version>
     <scalecube-commons.version>1.0.21</scalecube-commons.version>
     <scalecube-services.version>2.10.24</scalecube-services.version>
-    <scalecube-gateway.version>2.10.15</scalecube-gateway.version>
+    <scalecube-gateway.version>2.10.16</scalecube-gateway.version>
     <scalecube-security.version>1.0.28</scalecube-security.version>
     <scalecube-config.version>0.4.18</scalecube-config.version>
 
