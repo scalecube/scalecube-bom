@@ -33,10 +33,10 @@
 
   <properties>
     <scalecube-cluster.version>2.6.15</scalecube-cluster.version>
-    <scalecube-commons.version>1.0.22</scalecube-commons.version>
+    <scalecube-commons.version>1.0.23</scalecube-commons.version>
     <scalecube-services.version>2.10.25</scalecube-services.version>
     <scalecube-gateway.version>2.10.17</scalecube-gateway.version>
-    <scalecube-security.version>1.0.30</scalecube-security.version>
+    <scalecube-security.version>1.0.31</scalecube-security.version>
     <scalecube-config.version>0.4.20</scalecube-config.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
