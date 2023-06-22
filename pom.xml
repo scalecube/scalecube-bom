@@ -35,7 +35,6 @@
     <scalecube-cluster.version>2.6.16</scalecube-cluster.version>
     <scalecube-commons.version>1.0.23</scalecube-commons.version>
     <scalecube-services.version>2.11.1</scalecube-services.version>
-    <scalecube-gateway.version>2.10.17</scalecube-gateway.version>
     <scalecube-security.version>1.0.31</scalecube-security.version>
     <scalecube-config.version>0.4.20</scalecube-config.version>
 
@@ -80,18 +79,6 @@
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-services-transport-protostuff</artifactId>
         <version>${scalecube-services.version}</version>
-      </dependency>
-
-      <!-- Gateway -->
-      <dependency>
-        <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-services-gateway-netty</artifactId>
-        <version>${scalecube-gateway.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-services-gateway-client-transport</artifactId>
-        <version>${scalecube-gateway.version}</version>
       </dependency>
 
       <!-- Cluster -->
