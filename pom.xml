@@ -32,9 +32,9 @@
   </scm>
 
   <properties>
-    <scalecube-cluster.version>2.7.0.rc</scalecube-cluster.version>
+    <scalecube-cluster.version>2.6.18.rc</scalecube-cluster.version>
     <scalecube-commons.version>1.0.24</scalecube-commons.version>
-    <scalecube-services.version>2.11.3.rc2</scalecube-services.version>
+    <scalecube-services.version>2.11.3.rc3</scalecube-services.version>
     <scalecube-security.version>1.0.32</scalecube-security.version>
     <scalecube-config.version>0.4.20</scalecube-config.version>
 
