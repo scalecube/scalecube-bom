@@ -4,7 +4,7 @@
   <parent>
     <groupId>io.scalecube</groupId>
     <artifactId>scalecube-parent</artifactId>
-    <version>0.2.20</version>
+    <version>0.3.1</version>
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
@@ -32,11 +32,10 @@
   </scm>
 
   <properties>
-    <scalecube-cluster.version>2.6.17</scalecube-cluster.version>
-    <scalecube-commons.version>1.0.25</scalecube-commons.version>
+    <scalecube-cluster.version>2.6.18.RC10</scalecube-cluster.version>
     <scalecube-services.version>2.11.2</scalecube-services.version>
-    <scalecube-security.version>1.0.32</scalecube-security.version>
-    <scalecube-config.version>0.4.20</scalecube-config.version>
+    <scalecube-security.version>1.0.33.RC1</scalecube-security.version>
+    <scalecube-config.version>0.4.21.RC1</scalecube-config.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
     </distributionManagement.url>
@@ -140,13 +139,6 @@
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-security-vault</artifactId>
         <version>${scalecube-security.version}</version>
-      </dependency>
-
-      <!-- Commons -->
-      <dependency>
-        <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-commons</artifactId>
-        <version>${scalecube-commons.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
