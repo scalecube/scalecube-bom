@@ -1,14 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>io.scalecube</groupId>
     <artifactId>scalecube-parent</artifactId>
-    <version>0.2.20</version>
+    <version>0.3.1</version>
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
-  <version>0.0.11-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId} project</name>
 
@@ -32,11 +34,10 @@
   </scm>
 
   <properties>
-    <scalecube-cluster.version>2.6.17</scalecube-cluster.version>
-    <scalecube-commons.version>1.0.25</scalecube-commons.version>
-    <scalecube-services.version>2.11.2</scalecube-services.version>
-    <scalecube-security.version>1.0.32</scalecube-security.version>
-    <scalecube-config.version>0.4.20</scalecube-config.version>
+    <scalecube-cluster.version>2.7.0.RC1</scalecube-cluster.version>
+    <scalecube-services.version>2.12.0.RC1</scalecube-services.version>
+    <scalecube-security.version>1.1.0.RC1</scalecube-security.version>
+    <scalecube-config.version>0.5.0.RC2</scalecube-config.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
     </distributionManagement.url>
@@ -140,13 +141,6 @@
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-security-vault</artifactId>
         <version>${scalecube-security.version}</version>
-      </dependency>
-
-      <!-- Commons -->
-      <dependency>
-        <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-commons</artifactId>
-        <version>${scalecube-commons.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
