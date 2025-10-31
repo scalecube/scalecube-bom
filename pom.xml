@@ -33,8 +33,8 @@
 
   <properties>
     <scalecube-cluster.version>2.7.4</scalecube-cluster.version>
-    <scalecube-services.version>2.13.8</scalecube-services.version>
-    <scalecube-security.version>1.1.7</scalecube-security.version>
+    <scalecube-services.version>2.13.9.jjwt.rc1</scalecube-services.version>
+    <scalecube-security.version>1.1.8.jjwt.rc1</scalecube-security.version>
     <scalecube-config.version>0.5.3</scalecube-config.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
@@ -128,11 +128,6 @@
       <dependency>
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-security-jwt</artifactId>
-        <version>${scalecube-security.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-security-tokens</artifactId>
         <version>${scalecube-security.version}</version>
       </dependency>
       <dependency>
