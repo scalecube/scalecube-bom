@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -36,6 +38,7 @@
     <scalecube-services.version>2.13.9</scalecube-services.version>
     <scalecube-security.version>1.1.8</scalecube-security.version>
     <scalecube-config.version>0.5.3</scalecube-config.version>
+    <scalecube-metrics.version>0.1.3</scalecube-metrics.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
     </distributionManagement.url>
@@ -127,13 +130,25 @@
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-security-tokens</artifactId>
+        <artifactId>scalecube-security-vault</artifactId>
         <version>${scalecube-security.version}</version>
+      </dependency>
+
+      <!-- Metrics -->
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-metrics</artifactId>
+        <version>${scalecube-metrics.version}</version>
       </dependency>
       <dependency>
         <groupId>io.scalecube</groupId>
-        <artifactId>scalecube-security-vault</artifactId>
-        <version>${scalecube-security.version}</version>
+        <artifactId>scalecube-metrics-aeron</artifactId>
+        <version>${scalecube-metrics.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-metrics-prometheus</artifactId>
+        <version>${scalecube-metrics.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
