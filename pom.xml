@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>io.scalecube</groupId>
     <artifactId>scalecube-parent</artifactId>
-    <version>0.3.14</version>
+    <version>0.3.15</version>
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
@@ -32,8 +34,8 @@
   </scm>
 
   <properties>
-    <scalecube-cluster.version>2.7.5</scalecube-cluster.version>
-    <scalecube-services.version>2.13.11</scalecube-services.version>
+    <scalecube-cluster.version>2.7.6</scalecube-cluster.version>
+    <scalecube-services.version>2.13.13</scalecube-services.version>
     <scalecube-security.version>1.1.9</scalecube-security.version>
     <scalecube-config.version>0.5.4</scalecube-config.version>
     <scalecube-metrics.version>0.1.4</scalecube-metrics.version>
