@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
-  <version>0.1.26-SNAPSHOT</version>
+  <version>0.1.26</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
 
@@ -28,7 +28,7 @@
     <connection>scm:git:https://github.com/scalecube/scalecube-bom</connection>
     <developerConnection>scm:git:https://github.com/scalecube/scalecube-bom
     </developerConnection>
-    <tag>HEAD</tag>
+    <tag>release-0.1.26</tag>
   </scm>
 
   <properties>
