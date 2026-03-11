@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>io.scalecube</groupId>
     <artifactId>scalecube-parent</artifactId>
-    <version>0.3.18</version>
+    <version>0.3.19</version>
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
@@ -39,6 +41,7 @@
     <scalecube-metrics.version>0.1.9</scalecube-metrics.version>
     <scalecube-reports.version>0.1.2</scalecube-reports.version>
     <scalecube-test-support.version>0.1.3</scalecube-test-support.version>
+    <scalecube-artifacts.version>0.1.1</scalecube-artifacts.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
     </distributionManagement.url>
@@ -163,6 +166,13 @@
         <groupId>io.scalecube</groupId>
         <artifactId>scalecube-test-support</artifactId>
         <version>${scalecube-test-support.version}</version>
+      </dependency>
+
+      <!-- Artifacts -->
+      <dependency>
+        <groupId>io.scalecube</groupId>
+        <artifactId>scalecube-artifacts</artifactId>
+        <version>${scalecube-artifacts.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
