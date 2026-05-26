@@ -33,7 +33,7 @@
 
   <properties>
     <scalecube-cluster.version>2.7.8</scalecube-cluster.version>
-    <scalecube-services.version>2.13.21</scalecube-services.version>
+    <scalecube-services.version>2.13.22</scalecube-services.version>
     <scalecube-security.version>1.1.12</scalecube-security.version>
     <scalecube-config.version>0.5.7</scalecube-config.version>
     <scalecube-metrics.version>0.1.11</scalecube-metrics.version>
