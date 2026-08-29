@@ -39,7 +39,7 @@
     <scalecube-metrics.version>0.1.13</scalecube-metrics.version>
     <scalecube-reports.version>0.1.4</scalecube-reports.version>
     <scalecube-test-support.version>0.1.9</scalecube-test-support.version>
-    <scalecube-artifacts.version>0.1.4</scalecube-artifacts.version>
+    <scalecube-artifacts.version>0.1.5</scalecube-artifacts.version>
 
     <distributionManagement.url>https://maven.pkg.github.com/scalecube/scalecube-bom
     </distributionManagement.url>
