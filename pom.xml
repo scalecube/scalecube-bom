@@ -34,9 +34,9 @@
   <properties>
     <scalecube-cluster.version>2.7.11</scalecube-cluster.version>
     <scalecube-services.version>2.13.30</scalecube-services.version>
-    <scalecube-security.version>1.1.15</scalecube-security.version>
+    <scalecube-security.version>1.1.16</scalecube-security.version>
     <scalecube-config.version>0.5.9</scalecube-config.version>
-    <scalecube-metrics.version>0.1.14</scalecube-metrics.version>
+    <scalecube-metrics.version>0.1.15</scalecube-metrics.version>
     <scalecube-reports.version>0.1.5</scalecube-reports.version>
     <scalecube-test-support.version>0.1.10</scalecube-test-support.version>
     <scalecube-artifacts.version>0.1.6</scalecube-artifacts.version>
