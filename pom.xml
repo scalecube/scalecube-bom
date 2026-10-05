@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>scalecube-bom</artifactId>
-  <version>0.1.44-SNAPSHOT</version>
+  <version>0.1.45-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
 
