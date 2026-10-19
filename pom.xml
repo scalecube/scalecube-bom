@@ -37,7 +37,7 @@
     <scalecube-security.version>1.1.19</scalecube-security.version>
     <scalecube-config.version>0.5.10</scalecube-config.version>
     <scalecube-metrics.version>0.1.16</scalecube-metrics.version>
-    <scalecube-reports.version>0.1.6</scalecube-reports.version>
+    <scalecube-reports.version>0.1.7</scalecube-reports.version>
     <scalecube-test-support.version>0.1.13</scalecube-test-support.version>
     <scalecube-artifacts.version>0.1.7</scalecube-artifacts.version>
 
